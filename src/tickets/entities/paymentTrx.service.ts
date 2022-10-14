@@ -4,6 +4,12 @@ import { Repository } from 'typeorm';
 import { PaymentEntity } from './payment.entitiy';
 import { PaymentDto } from '../dto/payment.dto';
 
+/*
+ * This service is used to create a payment transaction
+ * @param {PaymentDto} payment
+ * @returns {Promise<PaymentEntity>}
+ * @memberof PaymentTrxService
+ */
 @Injectable()
 export class PaymentTrxService {
   @InjectRepository(PaymentEntity)
