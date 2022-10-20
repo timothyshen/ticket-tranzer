@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { CustomerDto } from './cutomer.dto';
 
 /*
-    * Create ticket data transfer object
+ * Create ticket data transfer object
  */
 export class TicketInformationDto {
   @ApiProperty({ name: 'origin' })

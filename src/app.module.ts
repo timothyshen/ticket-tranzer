@@ -1,8 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TicketsModule } from './tickets/tickets.module';
-import { DatabaseModule } from './TypeORM/datasouce.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { PaymentEntity } from './tickets/entities/payment.entitiy';
 
 @Module({
-  imports: [TicketsModule, DatabaseModule],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'identifier.sqlite',
+      entities: [PaymentEntity],
+      synchronize: true,
+    }),
+    TicketsModule,
+  ],
 })
 export class AppModule {}

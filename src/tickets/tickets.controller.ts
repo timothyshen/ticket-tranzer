@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { TicketsService } from './tickets.service';
 import { TicketInformationDto } from './dto/ticket-information.dto';
 import { PaymentDto } from './dto/payment.dto';
+import {databaseProviders} from "../../dist/TypeORM/database.providers";
 
 @Controller('tickets')
 export class TicketsController {
@@ -17,9 +18,9 @@ export class TicketsController {
     return this.ticketsService.getSpecificJourney(+id);
   }
 
-  @Post('purcahse-ticket/:id')
-  purchaseTicket(@Param('id') id: number, @Body() data: any) {
-    return this.ticketsService.purchaseTicket(+id, data);
+  @Post('purchase-ticket')
+  purchaseTicket(id: number) {
+    return this.ticketsService.purchaseTicket(id);
   }
 
   @Post('update-user/:id')
