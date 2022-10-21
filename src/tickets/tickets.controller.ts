@@ -2,7 +2,6 @@ import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { TicketsService } from './tickets.service';
 import { TicketInformationDto } from './dto/ticket-information.dto';
 import { PaymentDto } from './dto/payment.dto';
-import {databaseProviders} from "../../dist/TypeORM/database.providers";
 
 @Controller('tickets')
 export class TicketsController {
