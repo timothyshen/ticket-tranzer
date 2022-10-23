@@ -98,9 +98,11 @@
         Age: {{ passenger.age }}
       </div>
     </div>
-
-
-    <button @click="requestTrip">Submit request</button>
+    <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button" @click="requestTrip">
+      Request Trip
+    </button>
   </form>
 </template>
 
@@ -134,17 +136,14 @@ export default {
   },
   methods: {
     requestTrip() {
-      console.log(this.ticketRequest);
+      console.log("start");
       requestTicketInfo(this.ticketRequest).then(response => {
-        console.log(response);
+        console.log(response.data.mockResponse.id);
+        let reference_id = response.data.mockResponse.id;
+        localStorage.setItem("reference_id", reference_id);
+        this.$router.push({ name: "payment" });
       });
-      console.log(response.data.reference)
-      this.$router.push({
-        name: "viewtrip",
-        params: {
-          ticketInfo: this.ticketRequest
-        }
-      });
+
     },
     addPassenger() {
       this.ticketRequest.passengers.push(this.passenger);

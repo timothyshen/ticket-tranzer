@@ -24,7 +24,15 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is the Nest.js backend for Tranzor API connection, the main purpose of the backend is to provide a proxy server to test the API connection. And mock the response detail with a usable interface.
+
+The stack is Nest.js + SQLite and the frontend is Vue 3 + Vite.
+
+DTO
+
+- TicketInformationDto
+- PaymentDTO
+  - customerDTO
 
 ## Installation
 

@@ -18,8 +18,8 @@ export class TicketsController {
   }
 
   @Post('purchase-ticket')
-  purchaseTicket(id: number) {
-    return this.ticketsService.purchaseTicket(id);
+  purchaseTicket(@Body() data: PaymentDto) {
+    return this.ticketsService.purchaseTicket(data);
   }
 
   @Post('update-user/:id')
